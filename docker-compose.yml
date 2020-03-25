@@ -9,7 +9,7 @@ services:
        - "80:80"
      restart: always
      environment:
-       WORDPRESS_DB_HOST: database-2.coft0uf6izio.us-east-1.rds.amazonaws.com:3306
+       WORDPRESS_DB_HOST: database-2-2.coft0uf6izio.us-east-1.rds.amazonaws.com:3306
        WORDPRESS_DB_USER: admin
        WORDPRESS_DB_PASSWORD: Nini8079
-       WORDPRESS_DB_NAME: wordpress
+       WORDPRESS_DB_NAME: 

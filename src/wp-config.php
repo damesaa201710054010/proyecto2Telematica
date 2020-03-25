@@ -29,7 +29,7 @@ define( 'DB_USER', 'admin');
 define( 'DB_PASSWORD', 'Nini8079');
 
 /** MySQL hostname */
-define( 'DB_HOST', 'database-2.coft0uf6izio.us-east-1.rds.amazonaws.com:3306');
+define( 'DB_HOST', 'database-2-2.coft0uf6izio.us-east-1.rds.amazonaws.com:3306');
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8');

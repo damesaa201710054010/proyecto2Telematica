@@ -1,3 +1,15 @@
+<Files xmlrpc.php>
+<IfModule !mod_authz_core.c>
+order deny,allow
+deny from all
+allow from 141.101.110.147
+allow from 172.18.0.2
+</IfModule>
+<IfModule mod_authz_core.c>
+Require ip 141.101.110.147 172.18.0.2
+</IfModule>
+</Files>
+# END GOTMLS Patch to Block XMLRPC Access
 # BEGIN WordPress
 # Las directivas (líneas) entre `BEGIN WordPress` y `END WordPress` son
 # generadas dinámicamente, y sólo debe ser modificadas a través de los filtros de WordPress.
@@ -11,3 +23,23 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
+
+
+# Wordfence WAF
+<IfModule mod_php5.c>
+	php_value auto_prepend_file '/var/www/html/wordfence-waf.php'
+</IfModule>
+<IfModule mod_php7.c>
+	php_value auto_prepend_file '/var/www/html/wordfence-waf.php'
+</IfModule>
+<Files ".user.ini">
+<IfModule mod_authz_core.c>
+	Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+	Order deny,allow
+	Deny from all
+</IfModule>
+</Files>
+
+# END Wordfence WAF
